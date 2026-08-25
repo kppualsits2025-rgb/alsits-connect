@@ -1,0 +1,49 @@
+{
+  "name": "VoteRecord",
+  "type": "object",
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "description": "ID VotingEvent"
+    },
+    "voter_hash": {
+      "type": "string",
+      "description": "Hash anonim dari NRP+event untuk audit trail tanpa identifikasi pilihan"
+    },
+    "candidate_id": {
+      "type": "string",
+      "description": "ID VotingCandidate yang dipilih"
+    },
+    "voted_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "event_id",
+    "voter_hash",
+    "candidate_id"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "service_role"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "id.alsits.app",
+    "sha256_cert_fingerprints": ["AB:57:DE:10:27:72:A7:03:6E:18:3E:6F:0A:BC:80:88:9B:69:BB:07:6E:73:1A:16:52:99:74:89:36:D5:4A:67"]
+  }
+}]

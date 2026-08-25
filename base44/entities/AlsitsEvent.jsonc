@@ -1,0 +1,89 @@
+{
+  "name": "AlsitsEvent",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Judul kegiatan"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "ALSITS",
+        "Angkatan",
+        "Komunitas"
+      ],
+      "description": "Penyelenggara event"
+    },
+    "angkatan": {
+      "type": "string",
+      "description": "Kode angkatan (misal S32, S33) jika kategori Angkatan"
+    },
+    "description": {
+      "type": "string",
+      "description": "Deskripsi kegiatan (HTML)"
+    },
+    "cover_image": {
+      "type": "string",
+      "description": "URL gambar cover"
+    },
+    "gallery": {
+      "type": "string",
+      "description": "JSON array of image URLs"
+    },
+    "video_url": {
+      "type": "string",
+      "description": "URL video kegiatan"
+    },
+    "event_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Tanggal pelaksanaan"
+    },
+    "location": {
+      "type": "string",
+      "description": "Lokasi kegiatan"
+    },
+    "is_published": {
+      "type": "boolean",
+      "default": true
+    },
+    "source_url": {
+      "type": "string",
+      "description": "URL sumber (jika sync dari web angkatan)"
+    }
+  },
+  "required": [
+    "title",
+    "category"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "$or": [
+        {
+          "data.is_published": true
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

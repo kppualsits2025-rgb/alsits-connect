@@ -1,0 +1,63 @@
+{
+  "name": "AlumniClaim",
+  "type": "object",
+  "properties": {
+    "alumni_id": {
+      "type": "string",
+      "description": "ID alumni yang diklaim"
+    },
+    "identifier": {
+      "type": "string",
+      "description": "Email atau no HP yang digunakan untuk klaim"
+    },
+    "otp_code": {
+      "type": "string",
+      "description": "Kode OTP 6 digit"
+    },
+    "otp_expires_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Waktu kadaluarsa OTP (10 menit)"
+    },
+    "verified": {
+      "type": "boolean",
+      "default": false
+    },
+    "verified_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "alumni_id",
+    "identifier",
+    "otp_code"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "service_role"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

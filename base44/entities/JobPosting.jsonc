@@ -1,0 +1,110 @@
+{
+  "name": "JobPosting",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Judul lowongan/proyek"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Lowongan Kerja",
+        "Proyek",
+        "Magang",
+        "Freelance"
+      ]
+    },
+    "company": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "requirements": {
+      "type": "string"
+    },
+    "salary_range": {
+      "type": "string"
+    },
+    "contact_email": {
+      "type": "string"
+    },
+    "deadline": {
+      "type": "string",
+      "format": "date"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "posted_by_name": {
+      "type": "string"
+    },
+    "posted_by_angkatan": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "type"
+  ],
+  "rls": {
+    "create": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "user"
+          }
+        }
+      ]
+    },
+    "read": {
+      "$or": [
+        {
+          "data.is_active": true
+        },
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "name": "News",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Berita",
+        "Reuni",
+        "Webinar",
+        "Pengumuman",
+        "Kegiatan"
+      ]
+    },
+    "content": {
+      "type": "string",
+      "description": "HTML content of the news"
+    },
+    "excerpt": {
+      "type": "string"
+    },
+    "cover_image": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "is_published": {
+      "type": "boolean",
+      "default": false
+    },
+    "published_date": {
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "required": [
+    "title"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "$or": [
+        {
+          "data.is_published": true
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

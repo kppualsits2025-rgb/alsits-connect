@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+
+    /* Dark theme as default — nuansa hitam & biru navy ITS */
+    --background: 222 35% 7%;
+    --foreground: 210 40% 95%;
+    --card: 222 35% 11%;
+    --card-foreground: 210 40% 95%;
+    --popover: 222 35% 11%;
+    --popover-foreground: 210 40% 95%;
+    --primary: 217 89% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 30% 16%;
+    --secondary-foreground: 210 40% 85%;
+    --muted: 222 30% 14%;
+    --muted-foreground: 215 20% 55%;
+    --accent: 43 90% 55%;
+    --accent-foreground: 222 47% 8%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 222 30% 18%;
+    --input: 222 30% 16%;
+    --ring: 217 89% 55%;
+    --chart-1: 217 89% 55%;
+    --chart-2: 43 90% 55%;
+    --chart-3: 173 58% 45%;
+    --chart-4: 0 84% 60%;
+    --chart-5: 262 52% 65%;
+    --radius: 0.75rem;
+    --sidebar-background: 222 45% 5%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 43 90% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 40% 12%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 222 30% 15%;
+    --sidebar-ring: 43 90% 55%;
+  }
+
+  .dark {
+    --background: 222 35% 7%;
+    --foreground: 210 40% 95%;
+    --card: 222 35% 11%;
+    --card-foreground: 210 40% 95%;
+    --popover: 222 35% 11%;
+    --popover-foreground: 210 40% 95%;
+    --primary: 217 89% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 30% 16%;
+    --secondary-foreground: 210 40% 85%;
+    --muted: 222 30% 14%;
+    --muted-foreground: 215 20% 55%;
+    --accent: 43 90% 55%;
+    --accent-foreground: 222 47% 8%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 222 30% 18%;
+    --input: 222 30% 16%;
+    --ring: 217 89% 55%;
+    --chart-1: 217 89% 55%;
+    --chart-2: 43 90% 55%;
+    --chart-3: 173 58% 49%;
+    --chart-4: 0 84% 60%;
+    --chart-5: 262 52% 65%;
+    --sidebar-background: 222 45% 5%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 43 90% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 40% 12%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 222 30% 15%;
+    --sidebar-ring: 43 90% 55%;
+  }
+}
+
+/* Pastikan Radix Dialog overlay & content selalu di atas Leaflet map (z-index 400-1000) */
+[data-radix-dialog-overlay] {
+  z-index: 99998 !important;
+}
+[data-radix-dialog-content] {
+  z-index: 99999 !important;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}

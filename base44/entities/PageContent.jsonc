@@ -1,0 +1,60 @@
+{
+  "name": "PageContent",
+  "type": "object",
+  "properties": {
+    "page_key": {
+      "type": "string",
+      "description": "Unique key untuk halaman: sejarah, sambutan, struktur, visi_misi, prestasi, kontribusi, komunitas_gowes, komunitas_golf, komunitas_jalan_sehat, komunitas_trading"
+    },
+    "title": {
+      "type": "string",
+      "description": "Judul halaman"
+    },
+    "content": {
+      "type": "string",
+      "description": "Konten HTML utama"
+    },
+    "cover_image": {
+      "type": "string",
+      "description": "URL gambar cover"
+    },
+    "subtitle": {
+      "type": "string",
+      "description": "Subtitle atau tagline"
+    },
+    "gallery": {
+      "type": "string",
+      "description": "JSON array of image URLs"
+    },
+    "video_url": {
+      "type": "string",
+      "description": "URL video embed (YouTube, dll)"
+    },
+    "extra_data": {
+      "type": "string",
+      "description": "JSON untuk data tambahan (misal: struktur org)"
+    }
+  },
+  "required": [
+    "page_key",
+    "title"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

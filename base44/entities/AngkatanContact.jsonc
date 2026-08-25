@@ -1,0 +1,60 @@
+{
+  "name": "AngkatanContact",
+  "type": "object",
+  "properties": {
+    "angkatan": {
+      "type": "string",
+      "description": "Kode angkatan, misal S32, S51"
+    },
+    "source_web": {
+      "type": "string",
+      "description": "Web asal, misal s32its.id, s51its.id"
+    },
+    "full_name": {
+      "type": "string",
+      "description": "Nama lengkap kontak"
+    },
+    "role_label": {
+      "type": "string",
+      "description": "Jabatan/peran, misal Admin S32, Koordinator"
+    },
+    "telepon": {
+      "type": "string",
+      "description": "Nomor WA/HP (format: 628xxx)"
+    },
+    "email": {
+      "type": "string"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Apakah kontak ini aktif ditampilkan"
+    },
+    "external_user_id": {
+      "type": "string",
+      "description": "ID user di web angkatan asal (untuk dedup)"
+    }
+  },
+  "required": [
+    "angkatan",
+    "full_name"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

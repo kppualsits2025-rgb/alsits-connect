@@ -1,0 +1,53 @@
+{
+  "name": "VotingEvent",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Nama event pemilihan"
+    },
+    "description": {
+      "type": "string",
+      "description": "Deskripsi event"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "active",
+        "closed"
+      ],
+      "default": "draft",
+      "description": "Status event voting"
+    },
+    "start_time": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "end_time": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "title"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

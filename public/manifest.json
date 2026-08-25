@@ -1,0 +1,61 @@
+{
+  "name": "ALSITS - Alumni Sipil ITS",
+  "short_name": "ALSITS",
+  "description": "Platformer digital bagi alumni Sipil ITS untuk terhubung, berbagi informasi, dan mendukung satu sama lain.",
+  "id": "id.alsits.app",
+  "start_url": "https://alsits.id/public-view",
+  "display": "standalone",
+  "theme_color": "#D4A017",
+  "background_color": "#0a1628",
+  "scope": "https://alsits.id",
+  "dir": "ltr",
+  "lang": "id",
+  "orientation": "portrait",
+  "categories": ["education", "social", "networking"],
+  "prefer_related_applications": false,
+  "display_override": ["standalone", "minimal-ui"],
+  "icons": [
+    {
+      "src": "https://media.base44.com/images/public/69fb35c6f6284d7276918adb/c03cab494_logo_komjur_sipil_3-removebg-preview.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://media.base44.com/images/public/69fb35c6f6284d7276918adb/c03cab494_logo_komjur_sipil_3-removebg-preview.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "https://media.base44.com/images/public/69fb35c6f6284d7276918adb/c03cab494_logo_komjur_sipil_3-removebg-preview.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Beranda ALSITS"
+    },
+    {
+      "src": "https://media.base44.com/images/public/69fb35c6f6284d7276918adb/14e8a5bf5_logoTS.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Database Alumni ALSITS"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Database Alumni",
+      "short_name": "Alumni",
+      "url": "https://alsits.id/public-view",
+      "icons": [{ "src": "https://media.base44.com/images/public/69fb35c6f6284d7276918adb/c03cab494_logo_komjur_sipil_3-removebg-preview.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Business Hub",
+      "short_name": "Bisnis",
+      "url": "https://alsits.id/business-hub",
+      "icons": [{ "src": "https://media.base44.com/images/public/69fb35c6f6284d7276918adb/c03cab494_logo_komjur_sipil_3-removebg-preview.png", "sizes": "192x192" }]
+    }
+  ]
+}

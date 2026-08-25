@@ -1,0 +1,75 @@
+{
+  "name": "VotingCandidate",
+  "type": "object",
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "description": "ID VotingEvent"
+    },
+    "alumni_id": {
+      "type": "string",
+      "description": "ID Alumni dari database Alumni"
+    },
+    "nomor_urut": {
+      "type": "number",
+      "description": "Nomor urut kandidat"
+    },
+    "visi": {
+      "type": "string",
+      "description": "Visi kandidat"
+    },
+    "misi": {
+      "type": "string",
+      "description": "Misi kandidat"
+    },
+    "photo_url": {
+      "type": "string",
+      "description": "URL foto kandidat (opsional, override foto alumni)"
+    },
+    "full_name": {
+      "type": "string",
+      "description": "Nama lengkap (cache dari alumni)"
+    },
+    "angkatan": {
+      "type": "string",
+      "description": "Angkatan (cache dari alumni)"
+    },
+    "vote_count": {
+      "type": "number",
+      "default": 0,
+      "description": "Jumlah suara (counter)"
+    }
+  },
+  "required": [
+    "event_id",
+    "alumni_id",
+    "nomor_urut"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "service_role"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

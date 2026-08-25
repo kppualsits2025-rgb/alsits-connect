@@ -1,0 +1,90 @@
+{
+  "name": "VoterRegistry",
+  "type": "object",
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "description": "ID VotingEvent"
+    },
+    "nrp": {
+      "type": "string",
+      "description": "NRP pemilih"
+    },
+    "email": {
+      "type": "string",
+      "description": "Email pemilih"
+    },
+    "full_name": {
+      "type": "string",
+      "description": "Nama pemilih"
+    },
+    "otp_code": {
+      "type": "string",
+      "description": "OTP kode 6 digit"
+    },
+    "otp_expires_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Waktu kadaluarsa OTP"
+    },
+    "otp_verified": {
+      "type": "boolean",
+      "default": false
+    },
+    "sudah_memilih": {
+      "type": "boolean",
+      "default": false,
+      "description": "Flag apakah sudah memilih"
+    },
+    "voted_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Waktu memilih"
+    }
+  },
+  "required": [
+    "event_id",
+    "nrp",
+    "email"
+  ],
+  "rls": {
+    "create": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "service_role"
+          }
+        }
+      ]
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "service_role"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
